@@ -13,7 +13,7 @@ namespace WUF.Net.nations
 		public int RWuf { get; set; }
 		public int RConf { get; set; }
 
-		public Nation(string name, double pts, int score, Conf conf, string stadium, string date, int rWuf, int rConf) : base (name, pts, score)
+		public Nation(string name, double pts, Conf conf, string stadium, string date, int rWuf, int rConf) : base(name, pts, 0)
 		{
 			
 			this.Conf = conf;

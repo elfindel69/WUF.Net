@@ -5,4 +5,15 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.0.21" />
+    <PackageReference Include="System.Security.Permissions" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\MySQL\Connector NET 6.10\Assemblies\v4.5.2\MySql.Data.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

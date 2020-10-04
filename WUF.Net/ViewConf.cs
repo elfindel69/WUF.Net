@@ -1,15 +1,20 @@
 ﻿using System;
-
+using System.Collections.Generic;
 
 namespace WUF.Net.nations
 
 {
     public class ViewConf
     {
-		public static int MenuConf()
+		public static int MenuConf(List<string> lNames)
 		{
 			Console.WriteLine("Confederations:");
-			Console.WriteLine("1- Europe");
+			int id = 1;
+			foreach (string s in lNames)
+			{
+				Console.WriteLine(id + " - " + s);
+				++id;
+			}
 
 			string strChoice = Console.ReadLine();
 			int.TryParse(strChoice, out int choice);
@@ -26,5 +31,21 @@ namespace WUF.Net.nations
 			Console.WriteLine("nb of members: " + conf.NbMembers);
 
 		}
-	}
+
+        internal static Conf AddConf()
+        {
+			Console.WriteLine("New Confederation:");
+			Console.WriteLine("name: " );
+			string name = Console.ReadLine();
+			Console.WriteLine("adj: ");
+			string adj = Console.ReadLine();
+			Console.WriteLine("date of creation: ");
+			string year = Console.ReadLine();
+			Console.WriteLine("nb of members: ");
+			string sNb = Console.ReadLine();
+			int.TryParse(sNb, out int nbMembers);
+
+			return new Conf(name, adj, nbMembers, year);
+		}
+    }
 }

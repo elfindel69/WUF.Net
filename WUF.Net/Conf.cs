@@ -6,6 +6,7 @@ namespace WUF.Net.nations
 {
     public class Conf
     {
+		public int ConfId { get; set; }
 		public string Name { get; set; }
 		public string Adj { get; set; }
 		public int NbMembers { get; set; }

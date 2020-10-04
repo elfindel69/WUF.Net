@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace WUF.Net
 {
@@ -11,7 +9,9 @@ namespace WUF.Net
 			Console.WriteLine("Menu:");
 			Console.WriteLine("1. scores...");
 			Console.WriteLine("2. points...");
-			Console.WriteLine("3. nations...");
+			Console.WriteLine("3. view nations...");
+			Console.WriteLine("4. add conf...");
+			Console.WriteLine("5. add nation...");
 			string strChoice = Console.ReadLine();
 			int.TryParse(strChoice, out int choice);
 			return choice;
