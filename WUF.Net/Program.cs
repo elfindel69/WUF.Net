@@ -57,6 +57,13 @@ namespace WUF.Net
 					ContMenu.AddNation(conn);
 
 				}
+				//add match
+				if (startMenu == 6)
+				{
+
+					ContMenu.AddMatch(conn);
+
+				}
 				Console.WriteLine("Quitter ? y/n");
 				saisie = Console.ReadKey(true);
 			} while (saisie.Key != ConsoleKey.Y);

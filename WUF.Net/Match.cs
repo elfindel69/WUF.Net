@@ -11,8 +11,9 @@ namespace WUF.Net.matches
 		public int Sc2 { get; set; }
 		public DateTime DoM { get; set; }
         public TimeZoneInfo TimeZone { get; internal set; }
+		public string TimeZoneJava { get; set; }
 
-        public Match(string nat1, int sc1, string nat2, int sc2, DateTime date, TimeZoneInfo timeZone)
+        public Match(string nat1, int sc1, string nat2, int sc2, DateTime date, TimeZoneInfo timeZone, string timeZoneJava)
 		{
 			this.Nat1 = nat1;
 			this.Sc1 = sc1;
@@ -20,6 +21,7 @@ namespace WUF.Net.matches
 			this.Sc2  = sc2;
 			this.DoM = date;
 			this.TimeZone = timeZone;
+			this.TimeZoneJava = timeZoneJava;
 		}
 	}
 }

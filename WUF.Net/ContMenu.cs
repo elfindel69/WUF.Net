@@ -45,6 +45,20 @@ namespace WUF.Net
 			ViewPoints.DoViewPoints(ct1, ct2);
 		}
 
+		internal static void AddMatch(MySqlConnection conn)
+		{
+			Match newMatch = ViewMatches.AddMatch(conn);
+			int lines = ContMatches.InsertMatch(conn, newMatch);
+			if (lines == 1)
+			{
+				Console.WriteLine("insertion successful !");
+			}
+			else
+			{
+				Console.WriteLine("insertion error !");
+			}
+		}
+
 		internal static void ViewNations(MySqlConnection conn)
 		{
 			List<string> lNames = ContConf.GetConfNames(conn);
