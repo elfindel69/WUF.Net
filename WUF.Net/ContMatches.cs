@@ -104,7 +104,7 @@ namespace WUF.Net.matches
 			cmd.Parameters.Add("@score1", MySqlDbType.Int32).Value = newMatch.Sc1;
 			cmd.Parameters.Add("@nation2", MySqlDbType.VarChar, 200).Value = newMatch.Nat2;
 			cmd.Parameters.Add("@score2", MySqlDbType.Int32).Value = newMatch.Sc2;
-			cmd.Parameters.Add("@dom", MySqlDbType.DateTime).Value = newMatch.DoM.ToString("yyyy-MM-dd HH:mm:ss");
+			cmd.Parameters.Add("@dom", MySqlDbType.Timestamp).Value = newMatch.DoM.ToString("yyyy-MM-dd HH:mm:ss");
 			cmd.Parameters.Add("@tz1", MySqlDbType.VarChar, 100).Value = newMatch.TimeZoneJava;
 			cmd.Parameters.Add("@tz2", MySqlDbType.VarChar, 100).Value = newMatch.TimeZone.StandardName;
 
