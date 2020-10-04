@@ -29,7 +29,7 @@ namespace WUF.Net.matches
             Console.WriteLine("score 2: ");
             string sScore2 = Console.ReadLine();
             int.TryParse(sScore2, out int score2);
-            Console.WriteLine("date yyyy-MM-dd HH:mm:ss :");
+            Console.WriteLine("date yyyy-MM-dd HH:mm:ss (French Time) :");
             string sDate = Console.ReadLine();
             DateTime date = DateTime.ParseExact(sDate, "yyyy-MM-dd HH:mm:ss",
                                 System.Globalization.CultureInfo.InvariantCulture);
