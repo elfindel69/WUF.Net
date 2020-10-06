@@ -67,13 +67,11 @@ namespace WUF.Net
 
 			//Confederation
 			List<Conf> lConf = ContConf.GetConfData(conn, lNames[confId]);
-			foreach (Conf c in lConf) {
-				ViewConf.DoViewConf(c);
-			}
-			if (confMenu > 1) {
-				++confMenu;
-			}
-			List<String> lNatNames = ContNation.GetNatNames(conn, confMenu);
+			Conf conf = lConf[0];
+			
+			ViewConf.DoViewConf(conf);
+			
+			List<String> lNatNames = ContNation.GetNatNames(conn, conf.ConfId);
 			
 			if(lNatNames.Count > 0)
 			{
@@ -91,9 +89,9 @@ namespace WUF.Net
 				Nation nat = lNat[0];
 				nat.Conf = lConf[0];
 
-				List<Cup> lCups = ContCup.GetCupData(conn, lNatNames[natId]);
+				List<Cup> lCups = ContCup.GetCupData(conn, nat.Name);
 
-				List<League> lLeagues = ContLeague.GetLeagueData(conn, lNatNames[natId]);
+				List<League> lLeagues = ContLeague.GetLeagueData(conn, nat.Name);
 				League confLeague = null;
 				if (lLeagues != null && lLeagues.Count > 0)
 				{
@@ -101,9 +99,9 @@ namespace WUF.Net
 				}
 
 
-				List<Match> tabMatches = ContMatches.GetMatchesData(conn, lNatNames[natId]);
+				List<Match> tabMatches = ContMatches.GetMatchesData(conn, nat.Name);
 
-				char[] results = ContMatches.CalcResults(tabMatches, lNatNames[natId]);
+				char[] results = ContMatches.CalcResults(tabMatches, nat.Name);
 
 				NatPage natPage = new NatPage(nat, lCups, confLeague, tabMatches, results);
 				ViewNatPage.ViewPage(natPage);

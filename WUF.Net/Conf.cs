@@ -12,8 +12,9 @@ namespace WUF.Net.nations
 		public int NbMembers { get; set; }
 		public string DoF { get; set; }
 
-		public Conf(String name, String adj, int nbMembers, String date)
+		public Conf(int id, String name, String adj, int nbMembers, String date)
 		{
+			this.ConfId = id;
 			this.Name = name;
 			this.Adj = adj;
 			this.NbMembers = nbMembers;

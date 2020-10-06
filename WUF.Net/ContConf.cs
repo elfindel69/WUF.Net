@@ -10,7 +10,7 @@ namespace WUF.Net.nations
         public static List<string> GetConfNames(MySqlConnection conn)
         {
             List<string> lRes = new List<string>();
-            string sql = "select name from wuf_data.conference";
+            string sql = "select name from wuf_data.conference order by name";
 
             // Créez un objet Command.
             MySqlCommand cmd = new MySqlCommand();
@@ -59,11 +59,12 @@ namespace WUF.Net.nations
 
                     while (reader.Read())
                     {
+                        int id = reader.GetInt32(0);
                         string name = reader.GetString(1);
                         string adj = reader.GetString(2);
                         int nbMembers = reader.GetInt32(3);
                         string doa = reader.GetString(4);
-                        lRes.Add(new Conf(name,adj,nbMembers,doa));
+                        lRes.Add(new Conf(id, name,adj,nbMembers,doa));
                     }
                 }
             }

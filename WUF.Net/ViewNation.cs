@@ -66,7 +66,7 @@ namespace WUF.Net.nations
 			int.TryParse(sConf, out int rConf);
 
 
-			return new Nation(name, pts, conf,stadium, year, rWuf, rConf);
+			return new Nation(0, name, pts, conf,stadium, year, rWuf, rConf);
 		}
     }
 }

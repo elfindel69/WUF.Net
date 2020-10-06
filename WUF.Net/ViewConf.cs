@@ -45,7 +45,7 @@ namespace WUF.Net.nations
 			string sNb = Console.ReadLine();
 			int.TryParse(sNb, out int nbMembers);
 
-			return new Conf(name, adj, nbMembers, year);
+			return new Conf(0, name, adj, nbMembers, year);
 		}
     }
 }

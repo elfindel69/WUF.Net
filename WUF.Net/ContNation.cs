@@ -10,7 +10,7 @@ namespace WUF.Net.nations
         internal static List<string> GetNatNames(MySqlConnection conn, int id)
         {
             List<string> lRes = new List<string>();
-            string sql = "select name from wuf_data.nation where conf_id = @id";
+            string sql = "select name from wuf_data.nation where conf_id = @id order by name";
 
             // Créez un objet Command.
             MySqlCommand cmd = new MySqlCommand();
@@ -60,13 +60,14 @@ namespace WUF.Net.nations
 
                     while (reader.Read())
                     {
+                        int id = reader.GetInt32(0);
                         string name = reader.GetString(1);
                         double pts = reader.GetDouble(2);
                         string stadium = reader.GetString(4);
                         string dom = reader.GetString(5);
                         int rWuf = reader.GetInt32(6);
                         int rConf = reader.GetInt32(7);
-                        lRes.Add(new Nation(name, pts,null, stadium, dom, rWuf,rConf));
+                        lRes.Add(new Nation(id, name, pts,null, stadium, dom, rWuf,rConf));
                     }
                 }
             }
