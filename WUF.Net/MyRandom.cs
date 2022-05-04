@@ -8,11 +8,11 @@ namespace WUF.Net.utils
     {
 		public static int RNG5(Random rand, int rng)
 		{
-			return rand.Next(200) * rng * 5;
+			return (int)Math.Floor(rand.NextDouble() * rng * 5);
 		}
 		public static int RNG2(Random rand, int rng)
 		{
-			return rand.Next(200) * rng * 2;
+			return (int)Math.Floor(rand.NextDouble() * rng * 2);
 		}
 	}
 }

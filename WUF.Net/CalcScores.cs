@@ -9,8 +9,8 @@ namespace WUF.Net.scores
 		{
 			int score1;
 			int score2;
-			int rng1 = getRng(pts1);
-			int rng2 = getRng(pts2);
+			int rng1 = getRng(pts1-pts2);
+			int rng2 = getRng(pts2-pts1);
 
 			var rand = new Random();
 			score1 = MyRandom.RNG5(rand, rng1) + MyRandom.RNG2(rand, rng1);
@@ -45,31 +45,42 @@ namespace WUF.Net.scores
 
 		private static int getRng(double pts)
 		{
-			int rng = 0;
-
-			if (pts <= 0)
+			int rng = 23;
+			if (pts < -76 && pts >= -100)
 			{
-				rng = 1;
+				rng = 20;
 			}
-			else if (pts < 1 && pts <= 25)
-			{
-				rng = 3;
-			}
-			else if (pts < 26 && pts <= 50)
-			{
-				rng = 5;
-			}
-			else if (pts < 51 && pts <= 75)
-			{
-				rng = 8;
-			}
-			else if (pts < 76 && pts <= 100)
+			else if (pts < -51 && pts >= -75)
 			{
 				rng = 13;
 			}
-			else
+			else if (pts <-26 && pts >= -50)
+			{
+				rng = 8;
+			}
+			else if (pts <= 0 && pts >-25)
+			{
+				rng = 5;
+			}
+			else if (pts >= 0 && pts <= 25)
+			{
+				rng = 5;
+			}
+			else if (pts > 26 && pts <= 50)
+			{
+				rng = 8;
+			}
+			else if (pts > 51 && pts <= 75)
+			{
+				rng = 13;
+			}
+			else if (pts > 76 && pts <= 100)
 			{
 				rng = 20;
+			}
+			else if(pts>100)
+			{
+				rng = 23;
 			}
 
 			return rng;
