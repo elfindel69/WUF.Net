@@ -10,7 +10,7 @@ namespace WUF.Net.nations
 		{
 			Console.WriteLine("Confédérations :");
 			Console.WriteLine("1- Europe");
-
+			Console.WriteLine("2- Amériques");
 			string strChoice = Console.ReadLine();
 			int.TryParse(strChoice, out int choice);
 			return choice;

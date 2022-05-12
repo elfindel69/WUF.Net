@@ -26,5 +26,15 @@ namespace WUF.Net.nations
 			Console.WriteLine("Classement WUF " + nat.Conf.Name+" : " + nat.RConf);
 			Console.WriteLine("points : " + nat.Pts);
 		}
+
+		public static int MenuNationsAmericas()
+		{
+			Console.WriteLine("Nations:");
+			Console.WriteLine("1- Etats-Unis");
+			Console.WriteLine("2- Canada");
+			string strChoice = Console.ReadLine();
+			int.TryParse(strChoice, out int choice);
+			return choice;
+		}
 	}
 }
