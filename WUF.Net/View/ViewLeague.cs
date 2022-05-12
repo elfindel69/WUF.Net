@@ -5,11 +5,15 @@ namespace WUF.Net.competition
 {
     public class ViewLeague
     {
-        public static void DoViewLeague(string name, string league, string result)
+        
+        public static void DoViewLeague(Model.ConfLeague lastConfLeague, string lastConfLeagueRes, Model.ConfLeague bestConfLeague,
+            string bestConfLeagueRes)
         {
-            Console.WriteLine(name + " :");
-            Console.WriteLine("current League: " + league);
-            Console.WriteLine("best result: " + result + "\n");
+            Console.WriteLine(lastConfLeague.Name + " ("+lastConfLeague.Edition+")"+" :");
+            Console.WriteLine("dernière Ligue: " + lastConfLeague.Level);
+            Console.WriteLine("dernier resultat: " + lastConfLeagueRes + "\n");
+            Console.WriteLine("meilleure Ligue: " + bestConfLeague.Level);
+            Console.WriteLine("meilleur resultat: " + bestConfLeagueRes + "\n");
         }
     }
 }

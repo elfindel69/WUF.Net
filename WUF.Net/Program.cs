@@ -29,6 +29,9 @@ namespace WUF.Net
 				//nations
 				if (startMenu == 3)
 				{
+					Conf americas = new Conf("Amériques", "américain", 41, "2018");
+					Nation usa = new Nation("Etats-Unis", 1373.41, 0, americas, "FedEx Field", "2018", 10, 1);
+					Model.Cup worldCup2021 = new Model.WorldCup("Coupe du Monde", "2021", usa, new DateTime(2021, 06, 03), new DateTime(2021, 07, 17));
 					int confMenu = ViewConf.MenuConf();
 					//Europe
 					
@@ -36,19 +39,38 @@ namespace WUF.Net
 					{
 						Conf europe = new Conf("Europe", "européen", 54, "2018");
 						ViewConf.DoViewConf(europe);
+						Nation allemagne = new Nation("Allemagne",1133.98,0,europe, "Olympiastadion Berlin", "2018",28,12);
+						Model.Cup euCup2019 = new Model.ConfCup("Coupe d'Europe", "2019", allemagne, new DateTime(2019, 06, 03), new DateTime(2019, 07, 06), europe);
+
+						Model.ConfLeague eu1A2019 = new Model.ConfLeague("Ligue des Nations - Europe", "2020", "1A", europe);
+
+						Model.ConfLeague eu2A2019 = new Model.ConfLeague("Ligue des Nations - Europe", "2020", "2A", europe);
 						TimeZoneInfo euZone = TimeZoneInfo.FindSystemTimeZoneById("Romance Standard Time");
 						TimeZoneInfo ukZone = TimeZoneInfo.FindSystemTimeZoneById("GMT Standard Time");
+
 						int natMenu = ViewNation.MenuNationsEurope();
 						//France
 						if (natMenu == 1)
 						{
 							Nation france = new Nation("France", 1294.97, 0, europe, "Stade de France", "2018", 13, 6);
 							ViewNation.DoViewNation(france);
-							ViewCup.DoViewCup("Coupe du Monde", 1, "quarts de finale", "2021");
-							string confCup = "Coupe d'Europe";
-							ViewCup.DoViewCup(confCup, 1, "finaliste", "2019");
-							String confLeague = "Ligue des Nations - Europe";
-							ViewLeague.DoViewLeague(confLeague, "1A", "3");
+							france.WorldCupParticipations = 1;
+							france.BestWorldCup = worldCup2021;
+							france.LastWorldCup = worldCup2021;
+							france.LastWorldCupRes = "quarts de finale";
+							france.BestWorldCupRes = "quarts de finale";
+							ViewCup.DoViewCup(france.LastWorldCup, france.WorldCupParticipations, france.BestWorldCupRes, france.BestWorldCup);
+							france.ConfCupParticipations = 1;
+							france.BestConfCup = euCup2019;
+							france.LastConfCup = euCup2019;
+							france.LastConfCupRes = "finaliste";
+							france.BestConfCupRes = "finaliste";
+							ViewCup.DoViewCup(france.LastConfCup, france.ConfCupParticipations, france.BestConfCupRes, france.BestConfCup);
+							france.LastConfLeague = eu1A2019;
+							france.LastConfLeagueRes = "3eme";
+							france.BestConfLeague = eu1A2019;
+							france.BestConfLeagueRes = "3eme";
+							ViewLeague.DoViewLeague(france.LastConfLeague, france.LastConfLeagueRes, france.BestConfLeague, france.BestConfLeagueRes);
 
 							List<Match> tabMatches = new List<Match>();
 
@@ -88,11 +110,24 @@ namespace WUF.Net
 						{
 							Nation italy = new Nation("Italie", 1153.25, 0, europe, "Stadio Olympico", "2018", 25, 10);
 							ViewNation.DoViewNation(italy);
-							ViewCup.DoViewCup("Coupe du Monde", 0, "qualifications", "2021");
-							String confCup = "Coupe d'Europe";
-							ViewCup.DoViewCup(confCup, 1, "quarts de finale", "2019");
-							String confLeague = "Ligue des Nations - Europe";
-							ViewLeague.DoViewLeague(confLeague, "2A", "3");
+							
+							italy.WorldCupParticipations = 0;
+							italy.BestWorldCup = worldCup2021;
+							italy.LastWorldCup = worldCup2021;
+							italy.BestWorldCupRes = "qualifications";
+							italy.LastWorldCupRes = "qualifications";
+							ViewCup.DoViewCup(italy.LastWorldCup, italy.WorldCupParticipations, italy.BestWorldCupRes, italy.BestWorldCup);
+							italy.ConfCupParticipations = 1;
+							italy.BestConfCup = euCup2019;
+							italy.LastConfCup = euCup2019;
+							italy.BestConfCupRes = "quarts de finale";
+							italy.LastConfCupRes = "quarts de finale";
+							ViewCup.DoViewCup(italy.LastConfCup, italy.ConfCupParticipations, italy.BestConfCupRes, italy.BestConfCup);
+							italy.LastConfLeague = eu2A2019;
+							italy.LastConfLeagueRes = "3eme";
+							italy.BestConfLeague = eu2A2019;
+							italy.BestConfLeagueRes = "3eme";
+							ViewLeague.DoViewLeague(italy.LastConfLeague, italy.LastConfLeagueRes, italy.BestConfLeague, italy.BestConfLeagueRes);
 
 							List<Match> tabMatches = new List<Match>();
 
@@ -131,11 +166,24 @@ namespace WUF.Net
                         {
 							Nation england = new Nation("Angleterre", 1877.43, 0, europe, "Twickenham Stadium", "2018", 1, 1);
 							ViewNation.DoViewNation(england);
-							ViewCup.DoViewCup("Coupe du Monde", 1, "4eme", "2021");
-							String confCup = england.Conf.Adj + " Cup";
-							ViewCup.DoViewCup(confCup, 1, "vainqueur", "2019");
-							String confLeague = "Ligue des Nations - Europe";
-							ViewLeague.DoViewLeague(confLeague, "1A", "2");
+						
+							england.WorldCupParticipations = 1;
+							england.BestWorldCup = worldCup2021;
+							england.LastWorldCup = worldCup2021;
+							england.BestWorldCupRes = "4eme";
+							england.LastWorldCupRes = "4eme";
+							ViewCup.DoViewCup(england.LastWorldCup, england.WorldCupParticipations, england.BestWorldCupRes, england.BestWorldCup);
+							england.ConfCupParticipations = 1;
+							england.BestConfCup = euCup2019;
+							england.LastConfCup = euCup2019;
+							england.BestConfCupRes = "vainqueur";
+							england.LastConfCupRes = "vainqueur";
+							ViewCup.DoViewCup(england.LastConfCup, england.ConfCupParticipations, england.BestConfCupRes, england.BestConfCup);
+							england.LastConfLeague = eu1A2019;
+							england.LastConfLeagueRes = "2eme";
+							england.BestConfLeague = eu1A2019;
+							england.BestConfLeagueRes = "2eme";
+							ViewLeague.DoViewLeague(england.LastConfLeague, england.LastConfLeagueRes, england.BestConfLeague, england.BestConfLeagueRes);
 
 							List<Match> tabMatches = new List<Match>();
 
@@ -174,20 +222,39 @@ namespace WUF.Net
 					//Amériques
 					if(confMenu == 2)
                     {
-						Conf americas = new Conf("Amériques", "américain", 41, "2018");
+						
 						ViewConf.DoViewConf(americas);
+
+						Model.Cup amCup2019 = new Model.ConfCup("Coupe des Amériques", "2019", usa, new DateTime(2019, 04, 01), 
+							new DateTime(2019, 05, 04), americas);
+
+						Model.ConfLeague am1A2019 = new Model.ConfLeague("Ligue des Nations - Amériques", "2020", "1A", americas);
+
 						int natMenu = ViewNation.MenuNationsAmericas();
 						TimeZoneInfo usaEast = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
 						//USA
 						if (natMenu == 1)
 						{
-							Nation usa = new Nation("Etats-Unis", 1373.41, 0, americas, "FedEx Field", "2018", 10, 1);
+							
 							ViewNation.DoViewNation(usa);
-							ViewCup.DoViewCup("Coupe du Monde", 1, "huitièmes de finale", "2021");
-							string confCup = "Coupe des Amériques";
-							ViewCup.DoViewCup(confCup, 1, "vainqueur", "2019");
-							String confLeague = "Ligue des Nations - Amériques";
-							ViewLeague.DoViewLeague(confLeague, "1A", "1");
+							
+							usa.WorldCupParticipations = 1;
+							usa.BestWorldCup = worldCup2021;
+							usa.LastWorldCup = worldCup2021;
+							usa.BestWorldCupRes = "huitièmes de finale";
+							usa.LastWorldCupRes = "huitièmes de finale";
+							ViewCup.DoViewCup(usa.LastWorldCup, usa.WorldCupParticipations, usa.BestWorldCupRes, usa.BestWorldCup);
+							usa.ConfCupParticipations = 1;
+							usa.BestConfCup = amCup2019;
+							usa.LastConfCup = amCup2019;
+							usa.BestConfCupRes = "vainqueur";
+							usa.LastConfCupRes = "vainqueur";
+							ViewCup.DoViewCup(usa.LastConfCup, usa.ConfCupParticipations, usa.BestConfCupRes, usa.BestConfCup);
+							usa.LastConfLeague = am1A2019;
+							usa.LastConfLeagueRes = "vainqueur";
+							usa.BestConfLeague = am1A2019;
+							usa.BestConfLeagueRes = "vainqueur";
+							ViewLeague.DoViewLeague(usa.LastConfLeague, usa.LastConfLeagueRes, usa.BestConfLeague, usa.BestConfLeagueRes);
 
 							List<Match> tabMatches = new List<Match>();
 
@@ -226,12 +293,24 @@ namespace WUF.Net
 						if (natMenu == 2)
 						{
 							Nation canada = new Nation("Canada", 1336.97, 0, americas, "Stadio Olympico", "2018", 11, 2);
-							ViewNation.DoViewNation(canada);
-							ViewCup.DoViewCup("Coupe du Monde", 1, "huitièmes de finale", "2021");
-							String confCup = "Coupe des Amériques";
-							ViewCup.DoViewCup(confCup, 1, "finaliste", "2019");
-							String confLeague = "Ligue des Nations - Amériques";
-							ViewLeague.DoViewLeague(confLeague, "1A", "2");
+						
+							canada.WorldCupParticipations = 1;
+							canada.BestWorldCup = worldCup2021;
+							canada.LastWorldCup = worldCup2021;
+							canada.BestWorldCupRes = "huitièmes de finale";
+							canada.LastWorldCupRes = "huitièmes de finale";
+							ViewCup.DoViewCup(canada.LastWorldCup, canada.WorldCupParticipations, canada.BestWorldCupRes, canada.BestWorldCup);
+							canada.ConfCupParticipations = 1;
+							canada.BestConfCup = amCup2019;
+							canada.LastConfCup = amCup2019;
+							canada.BestConfCupRes = "finaliste";
+							canada.LastConfCupRes = "finaliste";
+							ViewCup.DoViewCup(canada.LastConfCup, canada.ConfCupParticipations, canada.BestConfCupRes, canada.BestConfCup);
+							canada.LastConfLeague = am1A2019;
+							canada.LastConfLeagueRes = "2eme";
+							canada.BestConfLeague = am1A2019;
+							canada.BestConfLeagueRes = "2eme";
+							ViewLeague.DoViewLeague(canada.LastConfLeague, canada.LastConfLeagueRes, canada.BestConfLeague, canada.BestConfLeagueRes);
 
 							List<Match> tabMatches = new List<Match>();
 

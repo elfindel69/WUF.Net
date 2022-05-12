@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using WUF.Net.country;
 using WUF.Net.matches;
+using WUF.Net.Model;
 
 namespace WUF.Net.nations
 {
@@ -14,9 +15,27 @@ namespace WUF.Net.nations
 		public int RWuf { get; set; }
 		public int RConf { get; set; }
 
-		public List<Match> Matches { get; set; } = new List<Match>();
+		public int WorldCupParticipations { get; set; }
+		public string LastWorldCupRes { get; set; }
+		public Model.Cup LastWorldCup { get; set; }
+		public string BestWorldCupRes { get; set; }
+		public Cup BestWorldCup { get; set; }
 
-		public Nation(string name, double pts, int score, Conf conf, string stadium, string date, int rWuf, int rConf) : base (name, pts, score)
+		public int ConfCupParticipations { get; set; }
+		public string LastConfCupRes { get; set; }
+		public Model.Cup LastConfCup { get; set; }
+		public string BestConfCupRes { get; set; }
+		public Cup BestConfCup { get; internal set; }
+
+		public Model.ConfLeague LastConfLeague { get; set; }
+		public string LastConfLeagueRes { get; set; }
+		public Model.ConfLeague BestConfLeague { get; set; }
+		public string BestConfLeagueRes { get; set; }
+
+		public List<Match> Matches { get; set; } = new List<Match>();
+      
+
+        public Nation(string name, double pts, int score, Conf conf, string stadium, string date, int rWuf, int rConf) : base (name, pts, score)
 		{
 			
 			this.Conf = conf;
