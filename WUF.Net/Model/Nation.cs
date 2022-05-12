@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using WUF.Net.country;
+using WUF.Net.matches;
 
 namespace WUF.Net.nations
 {
@@ -12,6 +13,8 @@ namespace WUF.Net.nations
 		public string Stadium { get; set; }
 		public int RWuf { get; set; }
 		public int RConf { get; set; }
+
+		public IList<Match> Matches { get; set; } = new List<Match>();
 
 		public Nation(string name, double pts, int score, Conf conf, string stadium, string date, int rWuf, int rConf) : base (name, pts, score)
 		{

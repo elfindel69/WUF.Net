@@ -4,11 +4,12 @@ namespace WUF.Net.nations
 {
     public class ViewNation
     {
-		public static int MenuNations()
+		public static int MenuNationsEurope()
 		{
 			Console.WriteLine("Nations:");
 			Console.WriteLine("1- France");
-			Console.WriteLine("2- Italy");
+			Console.WriteLine("2- Italie");
+			Console.WriteLine("3- Angleterre");
 			string strChoice = Console.ReadLine();
 			int.TryParse(strChoice, out int choice);
 			return choice;
@@ -16,14 +17,14 @@ namespace WUF.Net.nations
 
 		public static void DoViewNation(Nation nat)
 		{
-			Console.WriteLine("Nation:");
-			Console.WriteLine("name: " + nat.Name);
-			Console.WriteLine("confederation: " + nat.Conf.Name);
-			Console.WriteLine("date of adhesion: " + nat.DoA);
-			Console.WriteLine("main stadium: " + nat.Stadium);
-			Console.WriteLine("WUF Ranking: " + nat.RWuf);
-			Console.WriteLine("WUF " + nat.Conf.Name + " Ranking: " + nat.RConf);
-			Console.WriteLine("points: " + nat.Pts);
+			Console.WriteLine("Nation :");
+			Console.WriteLine("nom : " + nat.Name);
+			Console.WriteLine("confédération : " + nat.Conf.Name);
+			Console.WriteLine("date d'adhésion : " + nat.DoA);
+			Console.WriteLine("stade principal : " + nat.Stadium);
+			Console.WriteLine("Classement WUF : " + nat.RWuf);
+			Console.WriteLine("Classement WUF " + nat.Conf.Name+" : " + nat.RConf);
+			Console.WriteLine("points : " + nat.Pts);
 		}
 	}
 }

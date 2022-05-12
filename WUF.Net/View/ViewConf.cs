@@ -8,7 +8,7 @@ namespace WUF.Net.nations
     {
 		public static int MenuConf()
 		{
-			Console.WriteLine("Confederations:");
+			Console.WriteLine("Confédérations :");
 			Console.WriteLine("1- Europe");
 
 			string strChoice = Console.ReadLine();
@@ -18,12 +18,12 @@ namespace WUF.Net.nations
 
 		public static void DoViewConf(Conf conf)
 		{
-			Console.WriteLine("Confederation:");
-			Console.WriteLine("name: " + conf.Name);
+			Console.WriteLine("Confédération :");
+			Console.WriteLine("nom : " + conf.Name);
 			Console.WriteLine("affiliation: WUF");
 			Console.WriteLine("sport: United Football");
-			Console.WriteLine("date of creation: " + conf.DoF);
-			Console.WriteLine("nb of members: " + conf.NbMembers);
+			Console.WriteLine("date de création: " + conf.DoF);
+			Console.WriteLine("nombre de membres: " + conf.NbMembers);
 
 		}
 	}
