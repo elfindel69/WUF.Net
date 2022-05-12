@@ -49,21 +49,11 @@ namespace WUF.Net
 							ViewCup.DoViewCup(confCup, 1, "finaliste", "2019");
 							String confLeague = "Ligue des Nations - Europe";
 							ViewLeague.DoViewLeague(confLeague, "1A", "3");
-							char[] results = new char[5];
-							results[0] = 'D';
-							results[1] = 'V';
-							results[2] = 'D';
-							results[3] = 'V';
-							results[4] = 'D';
-							for (int i = 0; i < results.Length; i++)
-							{
-								Console.Write(results[i]);
-							}
-							Console.Write("\n\n");
+
 							List<Match> tabMatches = new List<Match>();
-							
-							DateTime locDate1 = new DateTime(2021,11,20,20,00,00, DateTimeKind.Utc);
-							tabMatches.Add(new Match("Angleterre", 18, "France", 16, locDate1,euZone));
+
+							DateTime locDate1 = new DateTime(2021, 11, 20, 20, 00, 00, DateTimeKind.Utc);
+							tabMatches.Add(new Match("Angleterre", 18, "France", 16, locDate1, euZone));
 
 							DateTime locDate2 = new DateTime(2021, 11, 13, 20, 00, 00, DateTimeKind.Utc);
 							tabMatches.Add(new Match("Irlande", 14, "France", 16, locDate2, euZone));
@@ -78,6 +68,14 @@ namespace WUF.Net
 							tabMatches.Add(new Match("Afrique du Sud", 52, "France", 13, locDate5, euZone));
 
 							france.Matches = tabMatches;
+
+							char[] results = france.GetLast5Results();
+							for (int i = 0; i < results.Length; i++)
+							{
+								Console.Write(results[i]);
+							}
+							Console.Write("\n\n");
+							
 
 							foreach (Match item in france.Matches)
 							{
@@ -95,17 +93,7 @@ namespace WUF.Net
 							ViewCup.DoViewCup(confCup, 1, "quarts de finale", "2019");
 							String confLeague = "Ligue des Nations - Europe";
 							ViewLeague.DoViewLeague(confLeague, "2A", "3");
-							char[] results = new char[5];
-							results[0] = 'D';
-							results[1] = 'V';
-							results[2] = 'V';
-							results[3] = 'V';
-							results[4] = 'V';
-							for (int i = 0; i < results.Length; i++)
-							{
-								Console.Write(results[i]);
-							}
-							Console.Write("\n\n");
+
 							List<Match> tabMatches = new List<Match>();
 
 							DateTime locDate1 = new DateTime(2020, 10, 23, 19, 00, 00, DateTimeKind.Utc);
@@ -125,6 +113,15 @@ namespace WUF.Net
 
 							italy.Matches = tabMatches;
 
+							char[] results = italy.GetLast5Results();
+							results[4] = 'V';
+							for (int i = 0; i < results.Length; i++)
+							{
+								Console.Write(results[i]);
+							}
+							Console.Write("\n\n");
+							
+
 							foreach (Match item in italy.Matches)
 							{
 								ViewMatches.DoViewMatches(item);
@@ -140,35 +137,34 @@ namespace WUF.Net
 							ViewCup.DoViewCup(confCup, 1, "vainqueur", "2019");
 							String confLeague = "Ligue des Nations - Europe";
 							ViewLeague.DoViewLeague(confLeague, "1A", "2");
-							char[] results = new char[5];
-							results[0] = 'D';
-							results[1] = 'D';
-							results[2] = 'V';
-							results[3] = 'V';
-							results[4] = 'V';
+
+							List<Match> tabMatches = new List<Match>();
+
+							DateTime locDate1 = new DateTime(2021, 07, 17, 01, 00, 00, DateTimeKind.Utc);
+							tabMatches.Add(new Match("Angleterre", 38, "Afrique du Sud", 40, locDate1, ukZone));
+
+							DateTime locDate2 = new DateTime(2020, 07, 13, 22, 30, 00, DateTimeKind.Utc);
+							tabMatches.Add(new Match("Angleterre", 121, "Australie", 127, locDate2, ukZone));
+
+							DateTime locDate3 = new DateTime(2020, 07, 07, 22, 30, 00, DateTimeKind.Utc);
+							tabMatches.Add(new Match("Irlande", 15, "Angleterre", 55, locDate3, ukZone));
+
+							DateTime locDate4 = new DateTime(2020, 06, 29, 01, 00, 00, DateTimeKind.Utc);
+							tabMatches.Add(new Match("Angleterre", 105, "Hong Kong", 49, locDate4, ukZone));
+
+							DateTime locDate5 = new DateTime(2020, 06, 26, 22, 30, 00, DateTimeKind.Utc);
+							tabMatches.Add(new Match("Angleterre", 74, "Australie", 73, locDate5, ukZone));
+
+							england.Matches = tabMatches;
+
+							char[] results = england.GetLast5Results();
+
 							for (int i = 0; i < results.Length; i++)
 							{
 								Console.Write(results[i]);
 							}
 							Console.Write("\n\n");
-							List<Match> tabMatches = new List<Match>();
-
-							DateTime locDate1 = new DateTime(2021, 07, 17, 01, 00, 00, DateTimeKind.Utc);
-							tabMatches[0] = new Match("Angleterre", 38, "Afrique du Sud", 40, locDate1, ukZone);
-
-							DateTime locDate2 = new DateTime(2020, 07, 13, 22, 30, 00, DateTimeKind.Utc);
-							tabMatches[1] = new Match("Angleterre", 121, "Australie", 127, locDate2, ukZone);
-
-							DateTime locDate3 = new DateTime(2020, 07, 07, 22, 30, 00, DateTimeKind.Utc);
-							tabMatches[2] = new Match("Irlande", 15, "Angleterre", 55, locDate3, ukZone);
-
-							DateTime locDate4 = new DateTime(2020, 06, 29, 01, 00, 00, DateTimeKind.Utc);
-							tabMatches[3] = new Match("Angleterre", 105, "Hong Kong", 49, locDate4, ukZone);
-
-							DateTime locDate5 = new DateTime(2020, 06, 26, 22, 30, 00, DateTimeKind.Utc);
-							tabMatches[4] = new Match("Angleterre", 74, "Australie", 73, locDate5, ukZone);
-
-							england.Matches = tabMatches;
+							
 
 							foreach (Match item in england.Matches)
 							{

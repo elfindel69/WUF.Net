@@ -14,7 +14,7 @@ namespace WUF.Net.nations
 		public int RWuf { get; set; }
 		public int RConf { get; set; }
 
-		public IList<Match> Matches { get; set; } = new List<Match>();
+		public List<Match> Matches { get; set; } = new List<Match>();
 
 		public Nation(string name, double pts, int score, Conf conf, string stadium, string date, int rWuf, int rConf) : base (name, pts, score)
 		{
@@ -26,5 +26,28 @@ namespace WUF.Net.nations
 			this.RConf = rConf;
 
 		}
+
+
+		public Char[] GetLast5Results()
+        {
+			Match[] arr = Matches.ToArray();
+			Char[] results = new Char[5];
+			for(int i = 0; i < 5; i++)
+            {
+                if ((arr[i].Nat1.Equals(Name) && arr[i].Sc1 > arr[i].Sc2) || (arr[i].Nat2.Equals(Name) && arr[i].Sc1 < arr[i].Sc2))
+                {
+					results[i] = 'V';
+                }
+				else if (arr[i].Sc1 == arr[i].Sc2)
+				{
+					results[i] = 'N';
+				}
+                else
+                {
+					results[i] = 'D';
+                }
+			}
+			return results;
+        }
 	}
 }
