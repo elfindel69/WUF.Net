@@ -6,11 +6,13 @@ namespace WUF.Net.nations
 {
     public class ViewConf
     {
-		public static int MenuConf()
+		public static int MenuConf(System.Collections.Generic.List<Conf> confs)
 		{
 			Console.WriteLine("Confédérations :");
-			Console.WriteLine("1- Europe");
-			Console.WriteLine("2- Amériques");
+			for(int i = 0; i < confs.Count; i++)
+            {
+				Console.WriteLine(i+1+"- "+confs[i]);
+            }
 			string strChoice = Console.ReadLine();
 			int.TryParse(strChoice, out int choice);
 			return choice;

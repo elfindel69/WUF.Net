@@ -1,15 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace WUF.Net.nations
 {
     public class ViewNation
     {
-		public static int MenuNationsEurope()
+		public static int MenuNations(List<Nation> nations)
 		{
 			Console.WriteLine("Nations:");
-			Console.WriteLine("1- France");
-			Console.WriteLine("2- Italie");
-			Console.WriteLine("3- Angleterre");
+			for (int i = 0; i < nations.Count; i++)
+            {
+				Console.WriteLine(i + 1 + "- " + nations[i]);
+            }
 			string strChoice = Console.ReadLine();
 			int.TryParse(strChoice, out int choice);
 			return choice;
@@ -27,14 +29,5 @@ namespace WUF.Net.nations
 			Console.WriteLine("points : " + nat.Pts);
 		}
 
-		public static int MenuNationsAmericas()
-		{
-			Console.WriteLine("Nations:");
-			Console.WriteLine("1- Etats-Unis");
-			Console.WriteLine("2- Canada");
-			string strChoice = Console.ReadLine();
-			int.TryParse(strChoice, out int choice);
-			return choice;
-		}
 	}
 }

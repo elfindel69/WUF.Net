@@ -33,6 +33,8 @@ namespace WUF.Net.nations
 		public string BestConfLeagueRes { get; set; }
 
 		public List<Match> Matches { get; set; } = new List<Match>();
+
+		public string TimeZone { get; set; }
       
 
         public Nation(string name, double pts, int score, Conf conf, string stadium, string date, int rWuf, int rConf) : base (name, pts, score)
@@ -68,5 +70,10 @@ namespace WUF.Net.nations
 			}
 			return results;
         }
+
+		public override string ToString()
+		{
+			return Name;
+		}
 	}
 }

@@ -11,6 +11,8 @@ namespace WUF.Net.nations
 		public int NbMembers { get; set; }
 		public string DoF { get; set; }
 
+		public List<Nation> Nations { get; set; } = new List<Nation>();
+
 		public Conf(String name, String adj, int nbMembers, String date)
 		{
 			this.Name = name;
@@ -19,5 +21,9 @@ namespace WUF.Net.nations
 			this.DoF = date;
 		}
 
-	}
+        public override string ToString()
+        {
+			return Name;
+        }
+    }
 }
