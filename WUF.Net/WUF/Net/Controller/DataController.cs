@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 using WUF.Net.matches;
+using WUF.Net.Model;
 using WUF.Net.nations;
 
 namespace WUF.Net.Controller
 {
     public class DataController
     {
-        public static List<Conf> InitData()
+        public static WUFBoard InitData()
         {
+			WUFBoard wuf = new WUFBoard("WUF", "WUF",209,"2018");
+
 			Conf americas = new Conf("Amériques", "américain", 41, "2018");
 			Nation usa = new Nation("Etats-Unis", 1373.41, 0, americas, "FedEx Field", "2018", 10, 1);
 			Model.Cup worldCup2021 = new Model.WorldCup("Coupe du Monde", "2021", usa, new DateTime(2021, 06, 03), new DateTime(2021, 07, 17));
@@ -59,6 +62,7 @@ namespace WUF.Net.Controller
 
 			france.Matches = tabMatches;
 			europe.Nations.Add(france);
+			wuf.Nations.Add(france);
 			Nation italy = new Nation("Italie", 1153.25, 0, europe, "Stadio Olympico", "2018", 25, 10);
 			italy.WorldCupParticipations = 0;
 			italy.BestWorldCup = worldCup2021;
@@ -93,6 +97,7 @@ namespace WUF.Net.Controller
 			tabMatches.Add(new Match("Suisse", 23, "Italie", 13, locDate5, euZone));
 			italy.Matches = tabMatches;
 			europe.Nations.Add(italy);
+			wuf.Nations.Add(italy);
 			Nation england = new Nation("Angleterre", 1877.43, 0, europe, "Twickenham Stadium", "2018", 1, 1);
 			england.WorldCupParticipations = 1;
 			england.BestWorldCup = worldCup2021;
@@ -129,6 +134,7 @@ namespace WUF.Net.Controller
 
 			england.Matches = tabMatches;
 			europe.Nations.Add(england);
+			wuf.Nations.Add(england);
 			confs.Add(europe);
 			Model.Cup amCup2019 = new Model.ConfCup("Coupe des Amériques", "2019", usa, new DateTime(2019, 04, 01),
 						new DateTime(2019, 05, 04), americas);
@@ -169,6 +175,7 @@ namespace WUF.Net.Controller
 
 			usa.Matches = tabMatches;
 			americas.Nations.Add(usa);
+			wuf.Nations.Add(usa);
 			Nation canada = new Nation("Canada", 1336.97, 0, americas, "TD Place", "2018", 11, 2);
 			canada.WorldCupParticipations = 1;
 			canada.BestWorldCup = worldCup2021;
@@ -204,8 +211,10 @@ namespace WUF.Net.Controller
 
 			canada.Matches = tabMatches;
 			americas.Nations.Add(canada);
+			wuf.Nations.Add(canada);
 			confs.Add(americas);
-			return confs;
+			wuf.Confs = confs;
+			return wuf;
 		}
     }
 }

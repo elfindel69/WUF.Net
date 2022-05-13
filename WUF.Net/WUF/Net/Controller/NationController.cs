@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using WUF.Net.competition;
 using WUF.Net.matches;
@@ -34,5 +35,7 @@ namespace WUF.Net.Controller
                 ViewMatches.DoViewMatches(natEu.Matches[i]);
             }
         }
+
+       
     }
 }

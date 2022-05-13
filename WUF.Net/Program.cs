@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using WUF.Net.competition;
 using WUF.Net.matches;
+using WUF.Net.Model;
 using WUF.Net.nations;
 
 namespace WUF.Net
@@ -10,7 +11,7 @@ namespace WUF.Net
     {
         static void Main(string[] args)
         {
-			List<Conf> confs = Controller.DataController.InitData();
+			WUFBoard wuf = Controller.DataController.InitData();
 			ConsoleKeyInfo saisie;
 			do
 			{
@@ -34,12 +35,12 @@ namespace WUF.Net
 					
 					
 					
-					int confMenu = ViewConf.MenuConf(confs);
+					int confMenu = ViewConf.MenuConf(wuf.Confs);
 					//Europe
 					
 					if (confMenu == 1)
                     {
-                        Conf europe = confs[0];
+                        Conf europe = wuf.Confs[0];
                         ViewConf.DoViewConf(europe);
 
 
@@ -53,7 +54,7 @@ namespace WUF.Net
                     //Amériques
                     if (confMenu == 2)
                     {
-						Conf americas = confs[1];
+						Conf americas = wuf.Confs[1];
 						ViewConf.DoViewConf(americas);
 
 						
@@ -67,6 +68,12 @@ namespace WUF.Net
 					}
 
 				}
+				//World ranking
+				if(startMenu == 4)
+                {
+					List<Nation> list = Controller.RankingController.Ranking(wuf.Nations);
+					Controller.RankingController.ViewRanking(list);
+                }
 				Console.WriteLine("Quitter ? y/n");
 				saisie = Console.ReadKey(true);
 			} while (saisie.Key != ConsoleKey.Y);
