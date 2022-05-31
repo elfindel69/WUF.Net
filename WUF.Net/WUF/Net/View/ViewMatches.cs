@@ -10,7 +10,8 @@ namespace WUF.Net.matches
 		{
 			Console.WriteLine(match.Nat1 + " vs " + match.Nat2);
 			Console.WriteLine(match.Sc1 + " - " + match.Sc2);
-			DateTime locDate = TimeZoneInfo.ConvertTime(match.DoM, match.TimeZone);
+			TimeZoneInfo timeZoneInfo = TimeZoneInfo.FindSystemTimeZoneById(match.TimeZone);
+			DateTime locDate = TimeZoneInfo.ConvertTime(match.DoM, timeZoneInfo);
 			string format = "yyyy-MM-dd HH:mm:ss tt\" GMT\"zzz";
 			Console.WriteLine("date: " + locDate.ToString(format,new System.Globalization.CultureInfo("fr-FR")));
 		}

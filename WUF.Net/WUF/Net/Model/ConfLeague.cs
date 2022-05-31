@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 using WUF.Net.nations;
 
 namespace WUF.Net.Model
 {
+    [Table("ConfLeague")]
     public class ConfLeague
     {
+        [System.ComponentModel.DataAnnotations.Key]
+        public int ConfLeagueId { get; set; }
         public string Name { get; set; }
         public string Edition { get; set; }
 
